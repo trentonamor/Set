@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2F852E1B2C6AAC6500806D70 /* SpotApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F852E1A2C6AAC6500806D70 /* SpotApp.swift */; };
+		2F852E1B2C6AAC6500806D70 /* SetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F852E1A2C6AAC6500806D70 /* SetApp.swift */; };
 		2F852E1D2C6AAC6500806D70 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F852E1C2C6AAC6500806D70 /* ContentView.swift */; };
 		2F852E1F2C6AAC6600806D70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F852E1E2C6AAC6600806D70 /* Assets.xcassets */; };
 		2F852E222C6AAC6600806D70 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F852E212C6AAC6600806D70 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2F852E172C6AAC6500806D70 /* Spot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spot.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2F852E1A2C6AAC6500806D70 /* SpotApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotApp.swift; sourceTree = "<group>"; };
+		2F852E172C6AAC6500806D70 /* Set.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Set.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F852E1A2C6AAC6500806D70 /* SetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetApp.swift; sourceTree = "<group>"; };
 		2F852E1C2C6AAC6500806D70 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2F852E1E2C6AAC6600806D70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2F852E212C6AAC6600806D70 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -35,7 +35,7 @@
 		2F852E0E2C6AAC6500806D70 = {
 			isa = PBXGroup;
 			children = (
-				2F852E192C6AAC6500806D70 /* Spot */,
+				2F852E192C6AAC6500806D70 /* Set */,
 				2F852E182C6AAC6500806D70 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,20 +43,20 @@
 		2F852E182C6AAC6500806D70 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2F852E172C6AAC6500806D70 /* Spot.app */,
+				2F852E172C6AAC6500806D70 /* Set.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2F852E192C6AAC6500806D70 /* Spot */ = {
+		2F852E192C6AAC6500806D70 /* Set */ = {
 			isa = PBXGroup;
 			children = (
-				2F852E1A2C6AAC6500806D70 /* SpotApp.swift */,
+				2F852E1A2C6AAC6500806D70 /* SetApp.swift */,
 				2F852E1C2C6AAC6500806D70 /* ContentView.swift */,
 				2F852E1E2C6AAC6600806D70 /* Assets.xcassets */,
 				2F852E202C6AAC6600806D70 /* Preview Content */,
 			);
-			path = Spot;
+			path = Set;
 			sourceTree = "<group>";
 		};
 		2F852E202C6AAC6600806D70 /* Preview Content */ = {
@@ -70,9 +70,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2F852E162C6AAC6500806D70 /* Spot */ = {
+		2F852E162C6AAC6500806D70 /* Set */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2F852E252C6AAC6600806D70 /* Build configuration list for PBXNativeTarget "Spot" */;
+			buildConfigurationList = 2F852E252C6AAC6600806D70 /* Build configuration list for PBXNativeTarget "Set" */;
 			buildPhases = (
 				2F852E132C6AAC6500806D70 /* Sources */,
 				2F852E142C6AAC6500806D70 /* Frameworks */,
@@ -82,9 +82,9 @@
 			);
 			dependencies = (
 			);
-			name = Spot;
+			name = Set;
 			productName = Spot;
-			productReference = 2F852E172C6AAC6500806D70 /* Spot.app */;
+			productReference = 2F852E172C6AAC6500806D70 /* Set.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -102,7 +102,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2F852E122C6AAC6500806D70 /* Build configuration list for PBXProject "Spot" */;
+			buildConfigurationList = 2F852E122C6AAC6500806D70 /* Build configuration list for PBXProject "Set" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -115,7 +115,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2F852E162C6AAC6500806D70 /* Spot */,
+				2F852E162C6AAC6500806D70 /* Set */,
 			);
 		};
 /* End PBXProject section */
@@ -138,7 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F852E1D2C6AAC6500806D70 /* ContentView.swift in Sources */,
-				2F852E1B2C6AAC6500806D70 /* SpotApp.swift in Sources */,
+				2F852E1B2C6AAC6500806D70 /* SetApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,7 +325,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2F852E122C6AAC6500806D70 /* Build configuration list for PBXProject "Spot" */ = {
+		2F852E122C6AAC6500806D70 /* Build configuration list for PBXProject "Set" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2F852E232C6AAC6600806D70 /* Debug */,
@@ -334,7 +334,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2F852E252C6AAC6600806D70 /* Build configuration list for PBXNativeTarget "Spot" */ = {
+		2F852E252C6AAC6600806D70 /* Build configuration list for PBXNativeTarget "Set" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2F852E262C6AAC6600806D70 /* Debug */,
