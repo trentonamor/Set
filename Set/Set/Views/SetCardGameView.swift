@@ -1,24 +1,33 @@
 //
-//  ContentView.swift
-//  Spot
+//  SetGameViewModel.swift
+//  Set
 //
-//  Created by Trenton Parrotte on 8/12/24.
+//  Created by Trenton Parrotte on 8/13/24.
 //
 
 import SwiftUI
 
 struct SetCardGameView: View {
+    var viewModel: SetGameViewModel
+    
+    private let cardAspectRatio: CGFloat = 2/3
+    private let spacing: CGFloat = 4
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        cards
+    }
+    
+    private var cards: some View {
+        AspectVGrid(self.viewModel.deck, aspectRatio: self.cardAspectRatio) { card in
+            CardView(card: card)
+                .padding(spacing)
+                .onTapGesture {
+                    viewModel.choose(card)
+                }
         }
-        .padding()
     }
 }
 
 #Preview {
-    SetCardGameView()
+    SetCardGameView(viewModel: SetGameViewModel())
 }
