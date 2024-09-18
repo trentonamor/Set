@@ -14,7 +14,10 @@ struct SetCardGameView: View {
     private let spacing: CGFloat = 4
     
     var body: some View {
-        cards
+        VStack {
+            cards
+        }
+        .padding()
     }
     
     private var cards: some View {
