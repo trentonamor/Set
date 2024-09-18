@@ -17,7 +17,7 @@ struct CardView: View {
     let card: Card
     
     var body: some View {
-        Circle(color: .dynamicBlue, shading: .empty)
+        SymbolView(content: card.content)
             .padding(8)
             .cardify(isFaceUp: true)
     }
