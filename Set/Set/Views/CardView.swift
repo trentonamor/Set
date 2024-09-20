@@ -16,10 +16,26 @@ struct CardView: View {
     
     let card: Card
     
+    private var overlayColor: Color {
+        switch card.matchState {
+        case .invalid:
+            return Color.dynamicRed.opacity(0.2)
+        case .valid:
+            return Color.dynamicGreen.opacity(0.2)
+        default:
+            return Color.dynamicBlue.opacity(0.2)
+        }
+    }
+    
     var body: some View {
         SymbolView(content: card.content)
             .padding(8)
             .cardify(isFaceUp: true)
+            .overlay(
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(overlayColor)
+                    .opacity(card.isSelected ? 1 : 0)
+            )
     }
 }
 

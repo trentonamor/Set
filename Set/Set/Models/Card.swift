@@ -9,12 +9,13 @@ import Foundation
 
 extension SetGameModel {
     struct Card: Identifiable, CustomDebugStringConvertible {
-        var isFaceUp: Bool = true
+        var isSelected: Bool = false
+        var matchState: MatchState = .none
         let id = UUID()
         let content: SetCardContent
         
         var debugDescription: String {
-            return "\(id): \(content) \(isFaceUp ? "Up" : "Down")"
+            return "\(id): \(content) \(isSelected ? "Selected" : "Not Selected")"
         }
     }
     
@@ -42,4 +43,10 @@ extension SetGameModel {
         case blue
         case pink
     }
+}
+
+enum MatchState {
+    case none
+    case valid
+    case invalid
 }
