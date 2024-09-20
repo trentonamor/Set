@@ -23,6 +23,10 @@ import SwiftUI
     
     init() {
         self.model = Self.createSetGame()
+        self.shuffle()
+        for _ in 0..<3 {
+            self.draw()
+        }
     }
     
     
@@ -34,6 +38,10 @@ import SwiftUI
     
     func choose(_ card: Card) {
         model.choose(card: card)
+    }
+    
+    func draw() {
+        model.draw()
     }
     
     // MARK: Helpers

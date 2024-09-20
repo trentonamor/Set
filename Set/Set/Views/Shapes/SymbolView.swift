@@ -20,6 +20,7 @@ struct SymbolView: View {
         VStack {
             ForEach(0..<content.numberOfSymbols, id: \.self) { _ in
                 self.symbolView(for: content.symbol, shading: content.shading)
+                    .padding(4)
             }
         }
     }
@@ -38,7 +39,6 @@ struct SymbolView: View {
                     SquiggleView(color: color, shading: shading)
             }
         }
-        .padding()
     }
 }
 

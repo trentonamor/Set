@@ -30,6 +30,13 @@ struct SetGameModel {
         print("Chose \(card)")
     }
     
+    mutating func draw() {
+        for _ in 0..<3 {
+            let card = self.deck.removeFirst()
+            self.cardsInPlay.append(card)
+        }
+    }
+    
     private struct Constants {
         static let cardsInDeck: Int = 81
     }

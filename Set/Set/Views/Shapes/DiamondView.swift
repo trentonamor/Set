@@ -7,6 +7,18 @@
 
 import SwiftUI
 
+struct Diamond: Shape {
+    func path(in rect: CGRect) -> Path {
+        Path { path in
+            path.move(to: CGPoint(x: rect.midX, y: rect.minY))
+            path.addLine(to: CGPoint(x: rect.maxX, y: rect.midY))
+            path.addLine(to: CGPoint(x: rect.midX, y: rect.maxY ))
+            path.addLine(to: CGPoint(x: rect.minX, y: rect.midY))
+            path.closeSubpath()
+        }
+    }
+}
+
 struct DiamondView: ShapeView {
     var color: Color
     var shading: SetGameModel.Shading
@@ -15,20 +27,18 @@ struct DiamondView: ShapeView {
         Group {
             switch shading {
                 case .empty:
-                    Rectangle()
+                    Diamond()
                         .stroke(color, lineWidth: 4.0)
                 case .filled:
-                    Rectangle()
+                    Diamond()
                         .fill(color)
                 case .lined:
-                    Rectangle()
+                    Diamond()
                         .stroke(color, lineWidth: 4.0)
-                        .linedFill(lineColor: color, shape: Rectangle())
+                        .linedFill(lineColor: color, shape: Diamond())
             }
         }
-        .aspectRatio(contentMode: .fit)
-        .rotationEffect(.degrees(45))
-        .scaleEffect(CGSize(width: 1.0, height: 0.5))
+
     }
 }
 

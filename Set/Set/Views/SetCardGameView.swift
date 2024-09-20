@@ -16,18 +16,26 @@ struct SetCardGameView: View {
     var body: some View {
         VStack {
             cards
+            drawButton
         }
         .padding()
     }
     
     private var cards: some View {
-        AspectVGrid(self.viewModel.deck, aspectRatio: self.cardAspectRatio) { card in
+        AspectVGrid(self.viewModel.cardsInPlay, aspectRatio: self.cardAspectRatio) { card in
             CardView(card: card)
                 .padding(spacing)
                 .onTapGesture {
-                    viewModel.choose(card)
+                    self.viewModel.choose(card)
                 }
         }
+    }
+    
+    private var drawButton: some View {
+        Button("Draw 3 cards", action: {
+            self.viewModel.draw()
+        })
+        .buttonStyle(BorderedProminentButtonStyle())
     }
 }
 
