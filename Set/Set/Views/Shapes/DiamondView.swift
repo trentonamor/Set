@@ -28,14 +28,17 @@ struct DiamondView: ShapeView {
             switch shading {
                 case .empty:
                     Diamond()
-                        .stroke(color, lineWidth: 4.0)
+                        .stroke(color, lineWidth: 2.0)
+                        .aspectRatio(2.0, contentMode: .fit)
                 case .filled:
                     Diamond()
                         .fill(color)
+                        .aspectRatio(2.0, contentMode: .fit)
                 case .lined:
                     Diamond()
-                        .stroke(color, lineWidth: 4.0)
+                        .stroke(color, lineWidth: 2.0)
                         .linedFill(lineColor: color, shape: Diamond())
+                        .aspectRatio(2.0, contentMode: .fit)
             }
         }
 

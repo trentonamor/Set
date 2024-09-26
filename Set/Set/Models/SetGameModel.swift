@@ -93,6 +93,7 @@ struct SetGameModel {
     
     mutating func draw() {
         for _ in 0..<3 {
+            guard !self.deck.isEmpty else { return }
             let card = self.deck.removeFirst()
             self.cardsInPlay.append(card)
         }

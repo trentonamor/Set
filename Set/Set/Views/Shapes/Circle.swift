@@ -19,13 +19,13 @@ struct Circle: ShapeView {
             switch shading {
                 case .empty:
                     Capsule(style: .circular)
-                        .stroke(color, lineWidth: 4.0)
+                        .stroke(color, lineWidth: 2.0)
                 case .filled:
                     Capsule(style: .circular)
                         .fill(color)
                 case .lined:
                     Capsule(style: .circular)
-                        .stroke(color, lineWidth: 4.0)
+                        .stroke(color, lineWidth: 2.0)
                         .linedFill(lineColor: color, shape: Capsule(style: .circular))
             }
         }

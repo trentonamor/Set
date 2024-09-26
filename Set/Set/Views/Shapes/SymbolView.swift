@@ -17,11 +17,26 @@ struct SymbolView: View {
     let content: SetGameModel.SetCardContent
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             ForEach(0..<content.numberOfSymbols, id: \.self) { _ in
                 self.symbolView(for: content.symbol, shading: content.shading)
-                    .padding(4)
+                    .frame(maxHeight: 300) // This will ensure the symbols are a consistent size
             }
+        }
+        .padding()
+    }
+    
+    // Adjust spacing based on the number of symbols
+    private func calculateSpacing(for numberOfSymbols: Int) -> CGFloat {
+        switch numberOfSymbols {
+        case 1:
+            return 40 // Large spacing for one symbol
+        case 2:
+            return 20 // Medium spacing for two symbols
+        case 3:
+            return 10 // Smaller spacing for three symbols
+        default:
+            return 0 // Fallback case
         }
     }
     
@@ -29,7 +44,6 @@ struct SymbolView: View {
     private func symbolView(for symbol: SetGameModel.Symbol, shading: SetGameModel.Shading) -> some View{
         Group {
             let color = self.getColorForSetColor(content.color)
-            let shading = content.shading
             switch content.symbol {
                 case .diamond:
                     DiamondView(color: color, shading: shading)
@@ -40,7 +54,15 @@ struct SymbolView: View {
             }
         }
     }
+
+    
+    // Function to calculate the maximum symbol size to fit 3 symbols (the maximum count)
+    private func maxSymbolSize(in size: CGSize) -> CGFloat {
+        let maxSymbols = 3 // Assuming the max number of symbols is 3
+        return min(size.width, size.height) / CGFloat(maxSymbols)
+    }
 }
+
 
 extension SymbolView {
     private func getColorForSetColor(_ color: SetGameModel.SetColor) -> Color {
@@ -59,7 +81,7 @@ extension SymbolView {
     VStack {
         SymbolView(content: SetGameModel.SetCardContent(numberOfSymbols: 1, symbol: .squiggle, shading: .empty, color: .green))
         SymbolView(content: SetGameModel.SetCardContent(numberOfSymbols: 2, symbol: .circle, shading: .filled, color: .blue))
-        SymbolView(content: SetGameModel.SetCardContent(numberOfSymbols: 1, symbol: .diamond, shading: .lined, color: .pink))
+        SymbolView(content: SetGameModel.SetCardContent(numberOfSymbols: 3, symbol: .diamond, shading: .lined, color: .pink))
     }
     .padding()
 }

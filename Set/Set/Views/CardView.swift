@@ -29,7 +29,6 @@ struct CardView: View {
     
     var body: some View {
         SymbolView(content: card.content)
-            .padding(8)
             .cardify(isFaceUp: true)
             .overlay(
                 RoundedRectangle(cornerRadius: 12)

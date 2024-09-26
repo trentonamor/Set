@@ -51,14 +51,17 @@ struct SquiggleView: ShapeView {
             switch shading {
                 case .empty:
                     Squiggle()
-                        .stroke(color, lineWidth: 4.0)
+                        .stroke(color, lineWidth: 2.0)
+                        .aspectRatio(1.5, contentMode: .fit)
                 case .filled:
                     Squiggle()
                         .fill(color)
+                        .aspectRatio(1.5, contentMode: .fit)
                 case .lined:
                     Squiggle()
-                        .stroke(color, lineWidth: 4.0)
+                        .stroke(color, lineWidth: 2.0)
                         .linedFill(lineColor: color, shape: Squiggle())
+                        .aspectRatio(1.5, contentMode: .fit)
             }
         }
         .rotationEffect(.degrees(-30))
