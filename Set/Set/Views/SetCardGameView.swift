@@ -16,9 +16,9 @@ struct SetCardGameView: View {
     var body: some View {
         VStack {
             cards
-            drawButton
+            buttons
         }
-        .padding()
+        .padding(.vertical, 4)
     }
     
     private var cards: some View {
@@ -31,9 +31,23 @@ struct SetCardGameView: View {
         }
     }
     
+    private var buttons: some View {
+        HStack {
+            resetButton
+            drawButton
+        }
+    }
+    
     private var drawButton: some View {
         Button("Draw 3 cards", action: {
             self.viewModel.draw()
+        })
+        .buttonStyle(BorderedProminentButtonStyle())
+    }
+    
+    private var resetButton: some View {
+        Button("Reset Game", action: {
+            self.viewModel.reset()
         })
         .buttonStyle(BorderedProminentButtonStyle())
     }

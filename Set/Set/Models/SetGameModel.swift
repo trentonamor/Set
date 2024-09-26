@@ -35,17 +35,22 @@ struct SetGameModel {
             // Select Card
             self.chosenCards.append(card)
         } else {
-            return
+            let hasMatch = self.checkForMatch()
+            self.resetSelection(hasMatch: hasMatch)
+            self.chosenCards.append(card)
+            if hasMatch {
+                self.draw()
+            }
         }
         
         if let cardIndex = self.cardsInPlay.firstIndex(where: { $0.id == card.id }) {
             self.cardsInPlay[cardIndex].isSelected = self.chosenCards.contains(where: { $0.id == card.id })
         }
         
-        checkForMatch()
+        _ = checkForMatch()
     }
     
-    private mutating func checkForMatch() {
+    private mutating func checkForMatch() -> Bool {
         guard self.chosenCards.count == 3,
                 let cardIndex1 = self.cardsInPlay.firstIndex(where: {$0.id == self.chosenCards[0].id}),
                 let cardIndex2 = self.cardsInPlay.firstIndex(where: {$0.id == self.chosenCards[1].id}),
@@ -59,7 +64,7 @@ struct SetGameModel {
                 self.chosenCards[chosenIndex].matchState = .none
                 chosenIndex += 1
             }
-            return
+            return false
         }
         
         let isMatched = self.hasMatch(for: \.content.numberOfSymbols) &&
@@ -72,6 +77,8 @@ struct SetGameModel {
         self.cardsInPlay[cardIndex1].matchState = matchState
         self.cardsInPlay[cardIndex2].matchState = matchState
         self.cardsInPlay[cardIndex3].matchState = matchState
+        
+        return isMatched
     }
     
     private func getMatchState(for isMatched: Bool) -> MatchState {
@@ -91,6 +98,29 @@ struct SetGameModel {
                             card1[keyPath: keyPath] != card3[keyPath: keyPath]
             
         return allSame || allDifferent
+    }
+    
+    mutating func resetSelection(hasMatch: Bool) {
+        if hasMatch {
+            // Remove cards from play
+            self.cardsInPlay.removeAll(where: {
+                let id = $0.id
+                return self.chosenCards.contains(where: { $0.id == id})
+            })
+        } else {
+            var chosenIndex = 0
+            for chosenCard in chosenCards {
+                if let index = self.cardsInPlay.firstIndex(where: { $0.id == chosenCard.id }) {
+                    self.cardsInPlay[index].matchState = .none
+                    self.cardsInPlay[index].isSelected = false
+                }
+                self.chosenCards[chosenIndex].matchState = .none
+                self.chosenCards[chosenIndex].isSelected = false
+                chosenIndex += 1
+            }
+        }
+
+        self.chosenCards = []
     }
     
     mutating func draw() {

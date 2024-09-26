@@ -44,6 +44,14 @@ import SwiftUI
         model.draw()
     }
     
+    func reset() {
+        self.model = Self.createSetGame()
+        self.shuffle()
+        for _ in 0..<3 {
+            self.draw()
+        }
+    }
+    
     // MARK: Helpers
     private static func createSetGame() -> SetGameModel {
         return SetGameModel { index in
