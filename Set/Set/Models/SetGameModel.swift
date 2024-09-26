@@ -31,9 +31,11 @@ struct SetGameModel {
         if let cardIndex = self.chosenCards.firstIndex(where: { $0.id == card.id }) {
             // Remove card if already chosen
             self.chosenCards.remove(at: cardIndex)
-        } else {
+        } else if self.chosenCards.count < 3{
             // Select Card
             self.chosenCards.append(card)
+        } else {
+            return
         }
         
         if let cardIndex = self.cardsInPlay.firstIndex(where: { $0.id == card.id }) {
